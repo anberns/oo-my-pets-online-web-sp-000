@@ -74,38 +74,16 @@ class Owner
     @pets.each do |species|
       species.clear
     end
+  end
+    
+  def list_pets
+    return "I have #{@pets[:fishes].size} fish, #{@pets[:dogs].size} dog(s), and #{@pets[:cats].size} cat(s)."
+  end
+    
   
 end
 
-describe "#sell_pets" do
-      it 'can sell all its pets, which make them nervous' do
-        fido = Dog.new("Fido")
-        tabby = Cat.new("Tabby")
-        nemo = Fish.new("Nemo")
-        [fido, tabby, nemo].each {|o| o.mood = "happy" }
-        owner.pets = {
-          :dogs => [fido, Dog.new("Daisy")],
-          :fishes => [nemo],
-          :cats => [Cat.new("Mittens"), tabby]
-        }
-        owner.sell_pets
-        owner.pets.each {|type, pets| expect(pets.empty?).to eq(true) }
-        [fido, tabby, nemo].each { |o| expect(o.mood).to eq("nervous") }
-      end
-    end
 
-    describe "#list_pets" do
-      it 'can list off its pets' do
-        owner.buy_fish("Bubbles")
-        owner.buy_fish("Nemo")
-        owner.buy_cat("Crookshanks")
-        owner.buy_dog("Fido")
-        owner.buy_dog("Snuffles")
-        owner.buy_dog("Charley")
-        expect(owner.list_pets).to eq("I have 2 fish, 3 dog(s), and 1 cat(s).")
-      end
-    end
-    
 
     
 
