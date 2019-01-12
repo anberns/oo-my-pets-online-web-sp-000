@@ -71,10 +71,6 @@ class Owner
         animal.mood = "nervous"
       end
     end
-    #@pets[:fishes].each do |fish|
-      #fish.mood = "nervous"
-    #end
-    
     @pets.each do |key, value|
       value.clear
     end
