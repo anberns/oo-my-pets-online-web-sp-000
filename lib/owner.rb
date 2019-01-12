@@ -19,6 +19,10 @@ class Owner
     @@all.size 
   end 
   
+  def self.all
+    @@all
+  end
+  
   def say_species
     return "I am a #{@species}."
   end
