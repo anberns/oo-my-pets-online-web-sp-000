@@ -75,8 +75,8 @@ class Owner
     @pets[:cats].each do |cat|
       cat.mood = "nervous"
     end
-    @pets.each do |species|
-      species.clear
+    @pets.each do |array|
+      array.clear
     end
   end
     
