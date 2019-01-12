@@ -61,23 +61,6 @@ class Owner
   
 end
 
-describe "#walk_dogs" do
-      it "walks the dogs which makes the dogs' moods happy" do
-        dog = Dog.new("Daisy")
-        owner.pets[:dogs] << dog
-        owner.walk_dogs
-        expect(dog.mood).to eq("happy")
-      end
-    end
-
-    describe "#play_with_cats" do
-      it "plays with the cats which makes the cats moods happy" do
-        cat = Cat.new("Muffin")
-        owner.pets[:cats] << cat
-        owner.play_with_cats
-        expect(cat.mood).to eq("happy")
-      end
-    end
 
     describe "#feed_fish" do
       it "feeds the fishes which makes the fishes' moods happy" do
