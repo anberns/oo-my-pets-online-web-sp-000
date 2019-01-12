@@ -5,8 +5,8 @@ class Owner
   
   @@all = []
   
-  def initialize
-    @species = "human"
+  def initialize(species)
+    @species = species
     @pets = {
       :fishes => [],
       :dogs => [],
@@ -23,3 +23,5 @@ class Owner
   end
   
 end
+
+:
