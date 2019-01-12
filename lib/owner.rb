@@ -66,10 +66,8 @@ class Owner
   end
   
   def sell_pets
-    @pets.each do |species|
-      species.each do |animal|
-        animal.mood = "nervous"
-      end 
+    @pets[:fishes].each do |fish|
+      fish.mood = "nervous"
     end
     @pets.each do |species|
       species.clear
@@ -82,7 +80,22 @@ class Owner
     
 end
 
-
+describe "#sell_pets" do
+      it 'can sell all its pets, which make them nervous' do
+        fido = Dog.new("Fido")
+        tabby = Cat.new("Tabby")
+        nemo = Fish.new("Nemo")
+        [fido, tabby, nemo].each {|o| o.mood = "happy" }
+        owner.pets = {
+          :dogs => [fido, Dog.new("Daisy")],
+          :fishes => [nemo],
+          :cats => [Cat.new("Mittens"), tabby]
+        }
+        owner.sell_pets
+        owner.pets.each {|type, pets| expect(pets.empty?).to eq(true) }
+        [fido, tabby, nemo].each { |o| expect(o.mood).to eq("nervous") }
+      end
+    end
  
     
 
